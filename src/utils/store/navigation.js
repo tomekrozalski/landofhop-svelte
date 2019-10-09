@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const isnavbar = writable(0);
+export const isNavbar = writable(0);

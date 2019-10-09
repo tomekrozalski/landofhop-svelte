@@ -15,7 +15,7 @@
     overflow: hidden;
     position: relative;
     transform: scaleX(1);
-    transition: transform 0.2s;
+    transition: transform var(--transition-default);
 
     &::before {
       content: "";

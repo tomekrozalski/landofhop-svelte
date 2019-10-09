@@ -1,5 +1,5 @@
 <script>
-  import { isnavbar } from "../utils/store/navigation";
+  import { isNavbar } from "../../utils/store/navigation";
   import { Logo, NavigationSwitcher, SearchbarSwitcher } from "./";
 </script>
 
@@ -12,9 +12,11 @@
     top: 0;
     left: 0;
     z-index: var(--index-header);
+    transform: translateY(0);
+    transition: transform var(--transition-default);
 
     &.navbar {
-      transform: translateY(100px);
+      transform: translateY(var(--size-navbar-height));
     }
   }
 
@@ -29,7 +31,7 @@
   }
 </style>
 
-<header class:navbar={$isnavbar}>
+<header class:navbar={$isNavbar}>
   <div>
     <Logo />
     <SearchbarSwitcher />

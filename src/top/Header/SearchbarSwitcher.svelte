@@ -1,4 +1,6 @@
 <style lang="scss">
+  @import "../../utils/breakpoints";
+
   div {
     grid-area: search;
     display: flex;
@@ -9,8 +11,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 3rem;
-    background: var(--color-black);
 
     &:hover svg {
       opacity: 0.5;
@@ -19,10 +19,15 @@
 
   svg {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     opacity: 1;
-    transition: opacity 0.2s;
+    transition: opacity var(--transition-default);
+
+    @media (min-width: $breakpoint-xl) {
+      width: 3rem;
+      height: 3rem;
+    }
 
     path {
       fill: var(--color-white);
