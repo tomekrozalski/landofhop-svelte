@@ -2,6 +2,8 @@
 	--color-black: #222;
 	--color-white: #fff;
 
+	--font-primary: "sofia-pro", "foco", sans-serif;
+
 	--index-navbar: 11;
 	--index-header: 12;
 
@@ -27,10 +29,26 @@
 
 html {
 	font-size: 10px;
+}
+
+body {
+	background-color: var(--color-white);
+	font: 400 1.5rem / 2rem var(--font-primary);
 	color: var(--color-black);
 }
 
 h1 {
+	margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
 	margin: 0;
 }
 

@@ -1,5 +1,6 @@
 <script>
-  import { blur } from "svelte/transition";
+  import { MainNavigation } from "./";
+  import { fly } from "svelte/transition";
 </script>
 
 <style>
@@ -10,24 +11,24 @@
     background: var(--color-white);
     position: fixed;
     top: 0;
-
-    font: 250px solid arial;
-    /* transform: translateY(${({ isNavbar }) => (isNavbar ? 0 : `-${sizes.topbar.height.xs}px`)});
-	transition: transform ${timingFunctions.default}; */
     left: 0;
     z-index: var(--index-navbar);
+  }
 
-    /* ${mq.md`
-		transform: translateY(${({ isNavbar }) => (isNavbar ? 0 : `-${sizes.topbar.height.md}px`)});
-	`}
-
-	${mq.xl`
-		height: ${sizes.navbar.height.xl}px;
-		transform: translateY(${({ isNavbar }) => (isNavbar ? 0 : `-${sizes.topbar.height.xl}px`)});
-	`} */
+  div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    max-width: var(--size-container-max-width);
+    height: 100%;
+    margin: 0 auto;
   }
 </style>
 
-<nav>
-  <div transition:blur={{ amount: 10 }}>Navbar</div>
+<nav transition:fly={{ duration: 200, opacity: 1 }}>
+  <div>
+    <MainNavigation />
+  </div>
 </nav>
