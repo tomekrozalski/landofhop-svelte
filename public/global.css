@@ -7,9 +7,9 @@
 	--index-navbar: 11;
 	--index-header: 12;
 
+	--size-container-max-width: 100%;
 	--size-header-height: 4rem;
 	--size-navbar-height: 8rem;
-	--size-container-max-width: 100%;
 
 	--transition-default: 0.2s cubic-bezier(0.42, 0, 1, 1);
 }
@@ -17,13 +17,15 @@
 @media (min-width: 768px) {
 	:root {
 		--size-header-height: 6rem;
+		--size-navbar-height: 6rem;
 	}
 }
 
 @media (min-width: 1600px) {
 	:root {
-		--size-header-height: 12rem;
 		--size-container-max-width: 1200px;
+		--size-header-height: 12rem;
+		--size-navbar-height: 8rem;
 	}
 }
 
@@ -60,4 +62,18 @@ button {
 
 button:focus {
 	outline: none;
+}
+
+a {
+	background-color: transparent;
+	text-decoration: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
 }

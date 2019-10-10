@@ -1,5 +1,5 @@
 <script>
-  import { Authorization } from "./";
+  import { Authorization, ListOfLinks } from "./";
 </script>
 
 <style>
@@ -11,4 +11,5 @@
 
 <div>
   <Authorization />
+  <ListOfLinks />
 </div>

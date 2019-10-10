@@ -1,5 +1,5 @@
 <script>
-  import { isNavbar } from "../../utils/store/navigation";
+  import { isNavbar } from "../../utils/store";
 </script>
 
 <style lang="scss">

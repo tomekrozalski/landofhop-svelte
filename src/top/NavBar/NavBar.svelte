@@ -1,5 +1,5 @@
 <script>
-  import { MainNavigation } from "./";
+  import { LangNavigation, MainNavigation } from "./";
   import { fly } from "svelte/transition";
 </script>
 
@@ -30,5 +30,6 @@
 <nav transition:fly={{ duration: 200, opacity: 1 }}>
   <div>
     <MainNavigation />
+    <LangNavigation />
   </div>
 </nav>
