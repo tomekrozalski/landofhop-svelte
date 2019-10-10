@@ -1,10 +1,13 @@
 <script>
-  import { isNavbar } from "./utils/store";
-  import { Header, NavBar } from "./top";
+  import { isLoginbar, isNavbar } from "./utils/store";
+  import { Header, Loginbar, NavBar } from "./top";
 
   // import Tiles from "./Tiles.svelte";
 </script>
 
+{#if $isLoginbar}
+  <Loginbar />
+{/if}
 {#if $isNavbar}
   <NavBar />
 {/if}

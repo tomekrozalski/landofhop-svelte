@@ -1,4 +1,6 @@
 <style lang="scss">
+  @import "../../utils/breakpoints";
+
   a {
     grid-area: logo;
     display: flex;
@@ -10,12 +12,20 @@
   }
 
   h1 {
-    width: 5rem;
+    width: 2rem;
     height: 100%;
     overflow: hidden;
     position: relative;
     transform: scaleX(1);
     transition: transform var(--transition-default);
+
+    @media (min-width: $breakpoint-md) {
+      width: 4rem;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      width: 5rem;
+    }
 
     &::before {
       content: "";

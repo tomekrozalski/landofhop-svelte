@@ -8,28 +8,13 @@
   li {
     display: flex;
   }
-
-  button {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background-color: var(--color-white);
-    color: var(--color-black);
-    transition: color var(--transition-default),
-      background-color var(--transition-default);
-
-    &:hover {
-      background-color: var(--color-black);
-      color: var(--color-white);
-    }
-  }
 </style>
 
 <ul>
   <li>
-    <button>PL</button>
+    <button class="header-link">PL</button>
   </li>
   <li>
-    <button>EN</button>
+    <button class="header-link">EN</button>
   </li>
 </ul>

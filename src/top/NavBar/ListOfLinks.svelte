@@ -12,7 +12,7 @@
     display: flex;
   }
 
-  a {
+  :global(.header-link) {
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -30,14 +30,14 @@
 
 <ul>
   <li>
-    <a href="/">O aplikacji</a>
+    <a href="/" class="header-link">O aplikacji</a>
   </li>
   <li>
-    <a href="/">Statystyki</a>
+    <a href="/" class="header-link">Statystyki</a>
   </li>
   {#if $isLoggedIn}
     <li>
-      <a href="/">Dodaj piwo</a>
+      <a href="/" class="header-link">Dodaj piwo</a>
     </li>
   {/if}
 </ul>

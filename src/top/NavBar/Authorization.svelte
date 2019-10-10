@@ -1,5 +1,5 @@
 <script>
-  import { isLoggedIn } from "../../utils/store";
+  import { isLoggedIn, isLoginbar } from "../../utils/store";
 </script>
 
 <style lang="scss">
@@ -9,21 +9,11 @@
   }
 
   button {
-    display: flex;
-    align-items: center;
     padding: 1rem 1rem 1rem 3rem;
-    color: var(--color-black);
-    background-color: var(--color-white);
-    transition: color 0.2s, background-color 0.2s;
     position: relative;
 
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-black);
-
-      svg path {
-        fill: var(--color-white);
-      }
+    &:hover svg path {
+      fill: var(--color-white);
     }
   }
 
@@ -43,7 +33,7 @@
 
 <div>
   {#if $isLoggedIn}
-    <button>
+    <button class="header-link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 24.84">
         <path
           d="M7.5 9.84c-4.14 0-7.5 3.36-7.5 7.5 0 4.14 3.36 7.5 7.5 7.5s7.5-3.36
@@ -61,7 +51,7 @@
       Wyloguj
     </button>
   {:else}
-    <button>
+    <button class="header-link" on:click={() => isLoginbar.update(val => !val)}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 21.15">
         <path
           d="M13.37 9.94H11.5V5.94c0-2.24-1.79-4.06-4-4.06C5.29 1.88 3.5 3.7 3.5

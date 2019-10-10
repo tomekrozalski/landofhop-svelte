@@ -1,9 +1,11 @@
 <script>
-  import { LangNavigation, MainNavigation } from "./";
   import { fly } from "svelte/transition";
+  import { LangNavigation, MainNavigation } from "./";
 </script>
 
-<style>
+<style lang="scss">
+  @import "../../utils/breakpoints";
+
   nav {
     display: block;
     width: 100%;
@@ -17,13 +19,17 @@
 
   div {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: stretch;
+    flex-direction: column;
     width: 100%;
     max-width: var(--size-container-max-width);
     height: 100%;
     margin: 0 auto;
+
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: stretch;
+    }
   }
 </style>
 

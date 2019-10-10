@@ -1,5 +1,15 @@
 <script>
-  import { isNavbar } from "../../utils/store";
+  import { isLoginbar, isNavbar } from "../../utils/store";
+
+  function toggleNavigation() {
+    isNavbar.update(val => {
+      if (val) {
+        isLoginbar.update(() => false);
+      }
+
+      return !val;
+    });
+  }
 </script>
 
 <style lang="scss">
@@ -34,7 +44,7 @@
   }
 </style>
 
-<button on:click={() => isNavbar.update(val => !val)}>
+<button on:click={toggleNavigation}>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 9">
     <title>Open</title>
     <circle cx="35.5" cy="4.5" r="4.5" />

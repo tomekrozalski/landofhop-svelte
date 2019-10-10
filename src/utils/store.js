@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
 
-export const isNavbar = writable(0);
+export const isNavbar = writable(false);
+export const isLoginbar = writable(false);
 export const isLoggedIn = writable(false);

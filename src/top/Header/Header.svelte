@@ -1,5 +1,5 @@
 <script>
-  import { isNavbar } from "../../utils/store";
+  import { isLoginbar, isNavbar } from "../../utils/store";
   import { Logo, NavigationSwitcher, SearchbarSwitcher } from "./";
 </script>
 
@@ -18,6 +18,12 @@
     &.navbar {
       transform: translateY(var(--size-navbar-height));
     }
+
+    &.loginbar {
+      transform: translateY(
+        calc(var(--size-navbar-height) + var(--size-loginbar-height))
+      );
+    }
   }
 
   div {
@@ -31,7 +37,7 @@
   }
 </style>
 
-<header class:navbar={$isNavbar}>
+<header class:navbar={$isNavbar} class:loginbar={$isLoginbar}>
   <div>
     <Logo />
     <SearchbarSwitcher />
