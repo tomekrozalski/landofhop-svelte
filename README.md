@@ -1,3 +1,3 @@
 # Land of hop - svelte app
 
-Learning Svelte.js using [Land of Hop back-end API](https://github.com/tomekrozalski/landofhop-back)
+Svelte application with beer catalogue. It is new version of [React Land of Hop](https://github.com/tomekrozalski/landofhop), but with the same [back-end API](https://github.com/tomekrozalski/landofhop-back). I have some issues with React, which I found hard to resolve (code become long and messy, especially CSS, it is hard to create nice looking transitions without react-spring, sometimes it is hard to keep it performant, I also had some troubles with make it PWA), so I decided to give a try to Svelte.js.
