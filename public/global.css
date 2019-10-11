@@ -84,3 +84,34 @@ ul {
 li {
 	list-style-type: none;
 }
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+	display: block;
+	width: calc(100% - 2rem);
+	height: 3.4rem;
+	border: 0;
+	border-bottom: 1px solid var(--color-dark);
+	padding: 0 1rem;
+	background-color: var(--color-brighter);
+	font: 300 1.6rem / 1 var(--font-primary);
+	color: var(--color-black);
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+	outline: none;
+	border-bottom-color: var(--color-black);
+}
+
+input[type="email"].input-bright,
+input[type="password"].input-bright,
+input[type="text"].input-bright {
+	background-color: var(--color-white);
+}
+
+label {
+	font: 300 1.6rem / 1 var(--font-primary);
+}

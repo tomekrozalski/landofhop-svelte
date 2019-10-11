@@ -2,12 +2,13 @@
   import { fly } from "svelte/transition";
 
   let email = "";
+  let password = "";
 
   $: console.log("email", email);
 </script>
 
 <style>
-  div {
+  .wrapper {
     width: 100%;
     position: fixed;
     top: var(--size-navbar-height);
@@ -23,10 +24,36 @@
     height: var(--size-loginbar-height);
     margin: 0 auto;
   }
+
+  .group {
+    display: flex;
+    align-items: center;
+    width: 34rem;
+    margin: 0 1.5rem;
+  }
+
+  label {
+    margin-right: 1rem;
+  }
 </style>
 
-<div transition:fly={{ duration: 200, opacity: 1 }}>
+<div class="wrapper" transition:fly={{ duration: 200, opacity: 1 }}>
   <form>
-    <input bind:value={email} type="email" />
+    <div class="group">
+      <label for="login-email">email:</label>
+      <input
+        bind:value={email}
+        class="input-bright"
+        id="login-email"
+        type="email" />
+    </div>
+    <div class="group">
+      <label for="login-password">hasło:</label>
+      <input
+        bind:value={password}
+        class="input-bright"
+        id="login-password"
+        type="password" />
+    </div>
   </form>
 </div>
