@@ -6,6 +6,11 @@
 	--color-bright: #ddd;
 	--color-dark: #ccc;
 	--color-darker: #aaa;
+	--color-success-strong: #4cb231;
+	--color-success-light: #beddb5;
+	--color-warning-strong: #d0be26;
+	--color-danger-strong: #be5656;
+	--color-danger-light: #dec1c1;
 
 	--font-primary: "sofia-pro", "foco", sans-serif;
 
@@ -14,6 +19,7 @@
 
 	--size-container-max-width: 100%;
 	--size-header-height: 4rem;
+	--size-input-height: 3.4rem;
 	--size-loginbar-height: 8rem;
 	--size-navbar-height: calc(100vh - 4rem);
 
@@ -67,6 +73,24 @@ button {
 	cursor: pointer;
 }
 
+button.btn-default {
+	height: var(--size-input-height);
+	padding: 0 2rem;
+	background-color: var(--color-black);
+	color: var(--color-white);
+	transition: background-color var(--transition-default);
+}
+
+button.btn-default:hover {
+	background-color: var(--color-success-strong);
+}
+
+button.btn-default:disabled {
+	background-color: var(--color-dark);
+	color: var(--color-brighter);
+	cursor: not-allowed;
+}
+
 button:focus {
 	outline: none;
 }
@@ -90,7 +114,7 @@ input[type="password"],
 input[type="text"] {
 	display: block;
 	width: calc(100% - 2rem);
-	height: 3.4rem;
+	height: var(--size-input-height);
 	border: 0;
 	border-bottom: 1px solid var(--color-dark);
 	padding: 0 1rem;

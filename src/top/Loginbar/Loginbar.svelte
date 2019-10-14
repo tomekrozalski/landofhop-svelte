@@ -1,10 +1,21 @@
 <script>
   import { fly } from "svelte/transition";
+  import { string, object } from "yup";
+  import { TextInput } from "../../elements";
 
   let email = "";
   let password = "";
+  let isEmailValid = false;
 
-  $: console.log("email", email);
+  let schema = string()
+    .email()
+    .required();
+
+  $: schema.isValid(email).then(isEmailValid => isEmailValid);
+
+  function sendTheForm() {
+    console.log(":)", email, password);
+  }
 </script>
 
 <style>
@@ -38,22 +49,24 @@
 </style>
 
 <div class="wrapper" transition:fly={{ duration: 200, opacity: 1 }}>
-  <form>
+  <form on:submit|preventDefault={sendTheForm}>
     <div class="group">
-      <label for="login-email">email:</label>
-      <input
-        bind:value={email}
-        class="input-bright"
+      <label for="login-email">Email:</label>
+      <TextInput
         id="login-email"
-        type="email" />
+        inverse={true}
+        type="email"
+        value={email}
+        isValid={isEmailValid} />
     </div>
     <div class="group">
-      <label for="login-password">hasło:</label>
-      <input
-        bind:value={password}
-        class="input-bright"
+      <label for="login-password">Hasło:</label>
+      <TextInput
         id="login-password"
-        type="password" />
+        inverse={true}
+        type="password"
+        value={password} />
     </div>
+    <button class="btn-default">Wyślij</button>
   </form>
 </div>
