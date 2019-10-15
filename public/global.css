@@ -138,4 +138,5 @@ input[type="text"].input-bright {
 
 label {
 	font: 300 1.6rem / 1 var(--font-primary);
+	margin-right: 1rem;
 }

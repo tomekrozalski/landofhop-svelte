@@ -1,21 +1,56 @@
 <script>
   import { fly } from "svelte/transition";
   import { string, object } from "yup";
-  import { TextInput } from "../../elements";
+  import { FieldStatusIndicator, TextInput } from "../../elements";
+  import { serverCall } from "../../utils";
+  import { endpoints } from "../../utils/constants";
 
-  let email = "";
-  let password = "";
-  let isEmailValid = false;
+  let form = {
+    email: {
+      touched: false,
+      valid: false,
+      value: ""
+    },
+    password: {
+      touched: false,
+      valid: false,
+      value: ""
+    }
+  };
 
-  let schema = string()
-    .email()
-    .required();
+  let validationSchemas = {
+    email: string()
+      .email()
+      .required(),
+    password: string()
+      .min(5)
+      .required()
+  };
 
-  $: schema.isValid(email).then(isEmailValid => isEmailValid);
-
-  function sendTheForm() {
-    console.log(":)", email, password);
+  function setTouched(e) {
+    form[e.target.type].touched = true;
   }
+
+  function onInput(e) {
+    const { type, value } = e.target;
+    form[type].value = value;
+
+    validationSchemas[type].isValid(form[type].value).then(valid => {
+      form[type].valid = valid;
+    });
+  }
+
+  const sendTheForm = async () => {
+    const rawResponse = await serverCall({
+      type: endpoints.login,
+      body: JSON.stringify({
+        email: form.email.value,
+        password: form.password.value
+      })
+    });
+
+    console.log("rawResponse", rawResponse);
+  };
 </script>
 
 <style>
@@ -39,12 +74,9 @@
   .group {
     display: flex;
     align-items: center;
-    width: 34rem;
+    width: 100%;
+    max-width: 34rem;
     margin: 0 1.5rem;
-  }
-
-  label {
-    margin-right: 1rem;
   }
 </style>
 
@@ -52,21 +84,33 @@
   <form on:submit|preventDefault={sendTheForm}>
     <div class="group">
       <label for="login-email">Email:</label>
-      <TextInput
-        id="login-email"
-        inverse={true}
-        type="email"
-        value={email}
-        isValid={isEmailValid} />
+      <FieldStatusIndicator field={form.email}>
+        <input
+          value={form.email.value}
+          class="input-bright"
+          id="login-email"
+          type="email"
+          on:change={setTouched}
+          on:input={onInput} />
+      </FieldStatusIndicator>
     </div>
     <div class="group">
       <label for="login-password">Hasło:</label>
-      <TextInput
-        id="login-password"
-        inverse={true}
-        type="password"
-        value={password} />
+      <FieldStatusIndicator field={form.password}>
+        <input
+          value={form.password.value}
+          class="input-bright"
+          id="login-password"
+          type="password"
+          on:change={setTouched}
+          on:input={onInput} />
+      </FieldStatusIndicator>
     </div>
-    <button class="btn-default">Wyślij</button>
+    <button
+      class="btn-default"
+      disabled={!form.email.valid || !form.password.valid}
+      type="submit">
+      Wyślij
+    </button>
   </form>
 </div>

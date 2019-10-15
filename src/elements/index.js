@@ -1,5 +1,5 @@
-import TextInput from './TextInput.svelte';
+import FieldStatusIndicator from './FieldStatusIndicator.svelte';
 
 export {
-	TextInput,
+	FieldStatusIndicator,
 };

@@ -1,9 +1,8 @@
 <script>
-  export let id = "id";
-  export let inverse = false;
-  export let isValid = false;
-  export let type = "text";
-  export let value = "";
+  export let field = {
+    touched: false,
+    valid: false
+  };
 </script>
 
 <style>
@@ -15,20 +14,32 @@
 
   svg {
     display: inline-block;
-    width: 14px;
-    height: 13px;
     position: absolute;
     top: 50%;
-    right: 0.8rem;
     transform: translateY(-50%);
+  }
 
+  svg.icon-warning {
+    width: 14px;
+    height: 13px;
+    right: 0.8rem;
     fill: var(--color-warning-strong);
+  }
+
+  svg.icon-success {
+    width: 14px;
+    height: 11px;
+    right: 0.6rem;
+    fill: var(--color-success-strong);
   }
 </style>
 
 <span>
-  {#if !isValid}
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 26">
+  {#if field.touched && !field.valid}
+    <svg
+      class="icon-warning"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 26">
       <path
         d="M27.82 23.78L15.2 0.79C14.94 0.3 14.43 0 13.88 0 13.33 0 12.82 0.3
         12.56 0.79c0 0 0 0 0 0L0.18 23.79c-0.25 0.47-0.24 1.02 0.03 1.48C0.49
@@ -39,5 +50,13 @@
         8.17zM14 23c-1.1 0-2-0.9-2-2s0.9-2 2-2 2 0.9 2 2S15.1 23 14 23z" />
     </svg>
   {/if}
-  <input {value} class:input-bright={inverse} {id} {type} on:input />
+  {#if field.touched && field.valid}
+    <svg
+      class="icon-success"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 241 181">
+      <path d="M209 0l32 32L92 181 0 89l32-32 60 60L209 0z" />
+    </svg>
+  {/if}
+  <slot />
 </span>
