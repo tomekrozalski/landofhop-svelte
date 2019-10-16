@@ -1,9 +1,14 @@
 <script>
   import { isLoginbar, isNavbar } from "./utils/store";
   import { Header, Loginbar, NavBar } from "./top";
-
-  // import Tiles from "./Tiles.svelte";
+  import { Tiles } from "./screens";
 </script>
+
+<style>
+  main {
+    margin-top: var(--size-header-height);
+  }
+</style>
 
 {#if $isLoginbar}
   <Loginbar />
@@ -12,4 +17,6 @@
   <NavBar />
 {/if}
 <Header />
-<!-- <Tiles /> -->
+<main>
+  <Tiles />
+</main>
