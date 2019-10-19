@@ -1,5 +1,5 @@
 <style lang="scss">
-  @import "../../utils/breakpoints";
+  @import "../../utils/helpers/breakpoints";
 
   a {
     grid-area: logo;

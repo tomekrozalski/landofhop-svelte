@@ -4,7 +4,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../utils/breakpoints";
+  @import "../../utils/helpers/breakpoints";
 
   nav {
     display: block;

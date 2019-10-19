@@ -4,7 +4,7 @@
   function toggleNavigation() {
     isNavbar.update(val => {
       if (val) {
-        isLoginbar.update(() => false);
+        isLoginbar.set(false);
       }
 
       return !val;
@@ -13,7 +13,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../utils/breakpoints";
+  @import "../../utils/helpers/breakpoints";
 
   button {
     grid-area: more;

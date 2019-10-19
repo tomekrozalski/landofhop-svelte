@@ -1,4 +1,4 @@
-import { servers } from './constants';
+import { servers } from '../constants';
 
 const serverCall = ({
 	params,

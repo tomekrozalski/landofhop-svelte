@@ -12,6 +12,15 @@
   });
 </script>
 
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 200px));
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+
 {#await beverages}
   loading...
 {:then data}

@@ -2,7 +2,7 @@
   import { fly } from "svelte/transition";
   import { string, object } from "yup";
   import { FieldStatusIndicator, TextInput } from "../../elements";
-  import { serverCall } from "../../utils";
+  import { serverCall } from "../../utils/helpers";
   import { endpoints } from "../../utils/constants";
 
   let form = {
