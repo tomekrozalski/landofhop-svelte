@@ -22,6 +22,7 @@
 	--size-input-height: 3.4rem;
 	--size-loginbar-height: 8rem;
 	--size-navbar-height: calc(100vh - 4rem);
+	--size-tiles-gap: 1rem;
 
 	--transition-default: 0.2s cubic-bezier(0.42, 0, 1, 1);
 }
@@ -35,7 +36,7 @@
 
 @media (min-width: 1600px) {
 	:root {
-		--size-container-max-width: 1200px;
+		--size-container-max-width: 1060px;
 		--size-header-height: 12rem;
 		--size-navbar-height: 8rem;
 	}
@@ -43,6 +44,11 @@
 
 html {
 	font-size: 10px;
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
