@@ -1,18 +1,9 @@
 <script>
   import { onMount } from "svelte";
-  import { isBefore } from "date-fns";
+  import { beveragesBasics } from "../../utils/store";
   import Tile from "./Tile.svelte";
 
-  let beverages = [];
-
-  onMount(async () => {
-    const res = await fetch("http://localhost:3100/api/v1/beverage");
-    const values = await res.json();
-
-    beverages = values.sort((a, b) =>
-      isBefore(new Date(a.added), new Date(b.added)) ? 1 : -1
-    );
-  });
+  onMount(beveragesBasics.get);
 </script>
 
 <style>
@@ -26,7 +17,7 @@
   }
 </style>
 
-{#await beverages}
+{#await $beveragesBasics}
   loading...
 {:then data}
   <ul>
