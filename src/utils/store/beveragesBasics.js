@@ -1,10 +1,10 @@
 import { writable } from 'svelte/store';
 import { isBefore } from "date-fns";
 
-function createBeveragesBasics() {
-	const beveragesBasics = writable([]);
+const beveragesBasics = writable([]);
 
-	const get = async () => {
+const customStore = {
+	get: async () => {
 		const res = await fetch("http://localhost:3100/api/v1/beverage");
     const values = await res.json();
 
@@ -13,13 +13,9 @@ function createBeveragesBasics() {
         isBefore(new Date(a.added), new Date(b.added)) ? 1 : -1
       )
     );
-	}
+	},
+	set: beveragesBasics.set,
+	subscribe: beveragesBasics.subscribe,
 
-	return {
-		get,
-		set: beveragesBasics.set,
-		subscribe: beveragesBasics.subscribe,
-	}
 }
-
-export default createBeveragesBasics();
+export default customStore;

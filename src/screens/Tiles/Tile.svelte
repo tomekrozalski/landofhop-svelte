@@ -1,4 +1,6 @@
 <script>
+  import { fade } from "svelte/transition";
+
   import { language, webpSupport } from "../../utils/store";
   import { servers } from "../../utils/constants";
   import { getNameByLanguage, setContainerHeight } from "../../utils/helpers";
@@ -30,7 +32,7 @@
   }
 </style>
 
-<li>
+<li transition:fade>
   <TileLink {container}>
     {#if failure}
       <BrokenContainer type={container.type} />

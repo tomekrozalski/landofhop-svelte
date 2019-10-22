@@ -60,6 +60,7 @@
     top: var(--size-navbar-height);
     left: 0;
     background-color: var(--color-brighter);
+    z-index: var(--index-loginbar);
   }
 
   form {

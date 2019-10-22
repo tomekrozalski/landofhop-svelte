@@ -21,7 +21,7 @@
   loading...
 {:then data}
   <ul>
-    {#each data as item}
+    {#each data as item (item.id)}
       <Tile {item} />
     {/each}
   </ul>

@@ -31,14 +31,16 @@
 
 <style lang="scss">
   img {
-    display: none;
+    display: block;
     height: 100%;
     transform: scale(1);
-    transition: transform var(--transition-default);
+    opacity: 0;
+    transition: transform var(--transition-default),
+      opacity var(--transition-default);
     pointer-events: none;
 
     &.loaded {
-      display: block;
+      opacity: 1;
     }
   }
 </style>
