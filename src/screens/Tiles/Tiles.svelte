@@ -3,7 +3,7 @@
   import { beveragesBasics } from "../../utils/store";
   import Tile from "./Tile.svelte";
 
-  onMount(beveragesBasics.get);
+  onMount(beveragesBasics.getBasics);
 </script>
 
 <style>
