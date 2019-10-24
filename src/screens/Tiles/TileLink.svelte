@@ -35,6 +35,6 @@
   }
 </style>
 
-<a class={`tile-height-${setContainerHeight(container)}`} href="/">
+<a class="tile-height-{setContainerHeight(container)}" href="/">
   <slot />
 </a>

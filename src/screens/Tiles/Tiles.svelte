@@ -1,9 +1,29 @@
 <script>
-  import { onMount } from "svelte";
+  import { afterUpdate, onMount } from "svelte";
   import { beveragesBasics } from "../../utils/store";
+  import { Spinner } from "../../elements";
   import Tile from "./Tile.svelte";
 
+  let bodyHeight;
+  let y;
+
+  $: console.log("y", y);
+  $: console.log("bodyHeight", bodyHeight);
+  $: console.log("beveragesBasics", $beveragesBasics);
+
   onMount(beveragesBasics.getBasics);
+
+  afterUpdate(() => {
+    const { offsetHeight } = document.body;
+
+    if (offsetHeight && !bodyHeight) {
+      bodyHeight = offsetHeight;
+    }
+  });
+
+  function mouseenter() {
+    console.log("mouseenter");
+  }
 </script>
 
 <style>
@@ -17,12 +37,19 @@
   }
 </style>
 
-{#await $beveragesBasics}
-  loading...
-{:then data}
+<svelte:head>
+  <title>Land of Hop :: Tiles</title>
+</svelte:head>
+
+<svelte:window bind:scrollY={y} />
+<svelte:body on:mouseenter={mouseenter} />
+
+{#if $beveragesBasics.length}
   <ul>
-    {#each data as item (item.id)}
+    {#each $beveragesBasics as item (item.id)}
       <Tile {item} />
     {/each}
   </ul>
-{/await}
+{:else}
+  <Spinner centered={true} />
+{/if}
