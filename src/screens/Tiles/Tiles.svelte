@@ -13,7 +13,7 @@
     grid-gap: var(--size-tiles-gap);
     max-width: var(--size-container-max-width);
     padding: 0 var(--size-tiles-gap);
-    margin: 0 auto;
+    margin: 0 auto 8rem auto;
   }
 </style>
 

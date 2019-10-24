@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { fade } from "svelte/transition";
 
   import { language, webpSupport } from "../../utils/store";
@@ -11,6 +12,9 @@
   let loaded = false;
   let { container } = item;
 
+  let canvasElement;
+  let visible;
+
   function setFailure() {
     failure = true;
   }
@@ -18,6 +22,27 @@
   function setLoaded() {
     loaded = true;
   }
+
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entry, observer) => {
+        const { isIntersecting, target } = entry[0];
+        if (!isIntersecting) {
+          return;
+        }
+
+        visible = isIntersecting;
+        observer.unobserve(target);
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "800px"
+      }
+    );
+
+    observer.observe(canvasElement);
+  });
 </script>
 
 <style lang="scss">
@@ -32,14 +57,13 @@
   }
 </style>
 
-<li transition:fade>
+<li transition:fade bind:this={canvasElement}>
   <TileLink {container}>
-    {#if failure}
+    {#if visible && failure}
       <BrokenContainer type={container.type} />
-    {:else}
+    {:else if visible}
       <Image {item} {loaded} on:error={setFailure} on:load={setLoaded} />
-    {/if}
-    {#if !loaded && !failure}
+    {:else if !visible || (!loaded && !failure)}
       <Container type={container.type} />
     {/if}
   </TileLink>
