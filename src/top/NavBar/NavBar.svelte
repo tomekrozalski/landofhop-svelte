@@ -1,6 +1,7 @@
 <script>
   import { fly } from "svelte/transition";
-  import { LangNavigation, MainNavigation } from "./";
+  import LangNavigation from "./LangNavigation.svelte";
+  import MainNavigation from "./MainNavigation.svelte";
 </script>
 
 <style lang="scss">

@@ -1,6 +1,8 @@
 <script>
   import { isLoginbar, isNavbar } from "../../utils/store";
-  import { Logo, NavigationSwitcher, SearchbarSwitcher } from "./";
+  import Logo from "./Logo.svelte";
+  import NavigationSwitcher from "./NavigationSwitcher.svelte";
+  import SearchbarSwitcher from "./SearchbarSwitcher.svelte";
 </script>
 
 <style lang="scss">

@@ -5,7 +5,10 @@
   import { language, webpSupport } from "../../utils/store";
   import { servers } from "../../utils/constants";
   import { getNameByLanguage, setContainerHeight } from "../../utils/helpers";
-  import { BrokenContainer, Container, Image, TileLink } from "./";
+  import BrokenContainer from "./BrokenContainer.svelte";
+  import Container from "./Container.svelte";
+  import Image from "./Image.svelte";
+  import TileLink from "./TileLink.svelte";
 
   export let item;
   let failure = false;

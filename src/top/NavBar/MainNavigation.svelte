@@ -1,5 +1,6 @@
 <script>
-  import { Authorization, ListOfLinks } from "./";
+  import Authorization from "./Authorization.svelte";
+  import ListOfLinks from "./ListOfLinks.svelte";
 </script>
 
 <style>
