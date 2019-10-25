@@ -1,7 +1,7 @@
 <script>
   import { afterUpdate, onMount } from "svelte";
-  import { beveragesBasics } from "../../utils/store";
-  import { Spinner } from "../../elements";
+  import { beveragesBasics } from "utils/store";
+  import { Spinner } from "elements";
   import Tile from "./Tile.svelte";
 
   let bodyHeight;

@@ -1,5 +1,5 @@
 <script>
-  import { setContainerHeight } from "../../utils/helpers";
+  import { setContainerHeight } from "utils/helpers";
 
   export let container;
 </script>

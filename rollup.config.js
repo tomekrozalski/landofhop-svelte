@@ -5,6 +5,7 @@ import svelte from 'rollup-plugin-svelte';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
+import alias from 'rollup-plugin-alias';
 
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
@@ -18,11 +19,21 @@ const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/
 
 const preprocess = sveltePreprocess({});
 
+const aliases = alias({
+    resolve: ['.js', '.svelte'],
+    entries: [
+				{ find: 'components', replacement: `${__dirname}/src/components` },
+        { find: 'elements', replacement: `${__dirname}/src/elements` },
+        { find: 'utils', replacement: `${__dirname}/src/utils` },
+    ],
+});
+
 export default {
 	client: {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
+			aliases,
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
@@ -68,6 +79,7 @@ export default {
 		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
+			aliases,
 			replace({
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode)

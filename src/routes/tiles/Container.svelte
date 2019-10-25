@@ -1,5 +1,5 @@
 <script>
-  import { container } from "../../utils/constants";
+  import { container } from "utils/constants";
   export let type;
 </script>
 

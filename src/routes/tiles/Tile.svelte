@@ -2,9 +2,9 @@
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
 
-  import { language, webpSupport } from "../../utils/store";
-  import { servers } from "../../utils/constants";
-  import { getNameByLanguage, setContainerHeight } from "../../utils/helpers";
+  import { language, webpSupport } from "utils/store";
+  import { servers } from "utils/constants";
+  import { getNameByLanguage, setContainerHeight } from "utils/helpers";
   import BrokenContainer from "./BrokenContainer.svelte";
   import Container from "./Container.svelte";
   import Image from "./Image.svelte";

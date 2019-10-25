@@ -1,5 +1,5 @@
 <script>
-  import { isLoginbar, isNavbar } from "../../utils/store";
+  import { isLoginbar, isNavbar } from "utils/store";
   import Logo from "./Logo.svelte";
   import NavigationSwitcher from "./NavigationSwitcher.svelte";
   import SearchbarSwitcher from "./SearchbarSwitcher.svelte";

@@ -1,8 +1,8 @@
 <script>
   import isBoolean from "lodash/isBoolean";
-  import { language, webpSupport } from "../../utils/store";
-  import { servers } from "../../utils/constants";
-  import { getNameByLanguage } from "../../utils/helpers";
+  import { language, webpSupport } from "utils/store";
+  import { servers } from "utils/constants";
+  import { getNameByLanguage } from "utils/helpers";
 
   export let item;
   export let loaded = false;

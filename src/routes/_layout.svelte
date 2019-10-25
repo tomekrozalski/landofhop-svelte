@@ -1,7 +1,6 @@
 <script>
-  import Nav from "../components/Nav.svelte";
-
-  import { isLoginbar, isNavbar } from "../utils/store";
+  import Nav from "components/Nav.svelte";
+  import { isLoginbar, isNavbar } from "utils/store";
   import { Header, Loginbar, NavBar } from "../top";
 
   export let segment;

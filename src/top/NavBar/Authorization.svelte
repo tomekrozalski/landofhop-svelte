@@ -1,5 +1,5 @@
 <script>
-  import { isLoggedIn, isLoginbar } from "../../utils/store";
+  import { isLoggedIn, isLoginbar } from "utils/store";
 </script>
 
 <style lang="scss">

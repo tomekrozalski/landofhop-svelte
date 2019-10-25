@@ -1,5 +1,5 @@
 <script>
-  import { isLoginbar, isNavbar } from "../../utils/store";
+  import { isLoginbar, isNavbar } from "utils/store";
 
   function toggleNavigation() {
     isNavbar.update(val => {
