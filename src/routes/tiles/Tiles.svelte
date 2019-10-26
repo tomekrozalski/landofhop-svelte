@@ -1,7 +1,6 @@
 <script>
   import { afterUpdate, onMount } from "svelte";
   import { beveragesBasics } from "utils/store";
-  import { Spinner } from "elements";
   import Tile from "./Tile.svelte";
 
   let bodyHeight;
@@ -10,8 +9,6 @@
   $: console.log("y", y);
   $: console.log("bodyHeight", bodyHeight);
   $: console.log("beveragesBasics", $beveragesBasics);
-
-  onMount(beveragesBasics.getBasics);
 
   afterUpdate(() => {
     const { offsetHeight } = document.body;
@@ -38,18 +35,14 @@
 </style>
 
 <svelte:head>
-  <title>Land of Hop :: Tiles</title>
+  <title>Land of Hop</title>
 </svelte:head>
 
 <svelte:window bind:scrollY={y} />
 <svelte:body on:mouseenter={mouseenter} />
 
-{#if $beveragesBasics.length}
-  <ul>
-    {#each $beveragesBasics as item (item.id)}
-      <Tile {item} />
-    {/each}
-  </ul>
-{:else}
-  <Spinner centered={true} />
-{/if}
+<ul>
+  {#each $beveragesBasics as item (item.id)}
+    <Tile {item} />
+  {/each}
+</ul>

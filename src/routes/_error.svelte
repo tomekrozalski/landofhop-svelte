@@ -1,40 +1,58 @@
 <script>
-	export let status;
-	export let error;
+  import { onDestroy, onMount } from "svelte";
 
-	const dev = process.env.NODE_ENV === 'development';
+  export let status;
+  export let error;
+
+  let seconds = 3;
+  let interval;
+
+  onMount(() => {
+    interval = setInterval(() => {
+      seconds = seconds - 1;
+    }, 1000);
+  });
+
+  onDestroy(() => {
+    clearInterval(interval);
+  });
+
+  const dev = process.env.NODE_ENV === "development";
 </script>
 
 <style>
-	h1, p {
-		margin: 0 auto;
-	}
+  div {
+    padding-top: 2rem;
+    text-align: center;
+  }
 
-	h1 {
-		font-size: 2.8em;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
+  h1 {
+    margin: 4rem;
+    font: 500 8rem / 1 var(--font-primary);
+    text-shadow: 1px 1px 1px var(--color-brighter), 0 0 0 var(--color-darker),
+      1px 1px 1px var(--color-brighter);
+    color: transparent;
+  }
 
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
+  p {
+    font: 400 1.6rem / 1 var(--font-primary);
+    color: var(--color-darker);
+  }
 </style>
 
 <svelte:head>
-	<title>{status}</title>
+  <title>notFound.title: {status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
-
-<p>{error.message}</p>
+{#if seconds === 0}
+  <div>@ToDo: Redirect</div>
+{:else}
+  <div>
+    <h1>notFound.title</h1>
+    <p>{status} : {error.message} : notFound.countDown {seconds}</p>
+  </div>
+{/if}
 
 {#if dev && error.stack}
-	<pre>{error.stack}</pre>
+  <pre>{error.stack}</pre>
 {/if}

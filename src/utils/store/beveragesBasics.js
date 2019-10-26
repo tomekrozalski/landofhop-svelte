@@ -6,13 +6,13 @@ import { servers } from '../constants';
 const beveragesBasics = writable([]);
 
 const customStore = {
-	getBasics: async ({ skip, limit } = { skip: 0, limit: 100 }) => {
-		const endpoint = `${servers.data}beverage/${skip}/${limit}`;
-		const res = await fetch(endpoint);
-    const values = await res.json();
+	// getBasics: async ({ skip, limit } = { skip: 0, limit: 100 }) => {
+	// 	const endpoint = `${servers.data}beverage/${skip}/${limit}`;
+	// 	const res = await fetch(endpoint);
+  //   const values = await res.json();
 
-    beveragesBasics.set(values);
-	},
+  //   beveragesBasics.set(values);
+	// },
 	set: beveragesBasics.set,
 	subscribe: beveragesBasics.subscribe,
 
