@@ -15,9 +15,7 @@
 {#if $isLoginbar}
   <Loginbar />
 {/if}
-{#if $isNavbar}
-  <NavBar />
-{/if}
+<NavBar />
 <Header />
 
 <!-- <Nav {segment} /> -->

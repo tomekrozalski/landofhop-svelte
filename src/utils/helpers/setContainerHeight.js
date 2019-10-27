@@ -3,25 +3,25 @@ const setContainerHeight = ({ unit, type, value }) => {
 		if (type === 'bottle') {
 			switch (value) {
 			case 750:
-				return 592;
+				return 'bottle-xl';
 			case 500:
 			case 450:
-				return 500;
+				return 'bottle-lg';
 			case 375:
 			case 330:
 			case 300:
-				return 446;
+				return 'bottle-md';
 			default:
-				return 0;
+				return 'zero';
 			}
 		}
 
 		if (type === 'can') {
-			return value > 350 ? 363 : 248;
+			return value > 350 ? 'can-lg' : 'can-md';
 		}
 	}
 
-	return 100;
+	return 'zero';
 };
 
 export default setContainerHeight;

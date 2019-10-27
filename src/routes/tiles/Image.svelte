@@ -36,7 +36,7 @@
 <style lang="scss">
   img {
     display: block;
-    height: 100%;
+    width: 100%;
     transform: scale(1);
     opacity: 0;
     transition: transform var(--transition-default),

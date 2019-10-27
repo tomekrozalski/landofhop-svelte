@@ -5,6 +5,8 @@
 </script>
 
 <style lang="scss">
+  @import "../../utils/helpers/breakpoints";
+
   a {
     display: flex;
     justify-content: center;
@@ -12,25 +14,43 @@
     width: 100%;
   }
 
-  .tile-height-592 {
-    height: 592px;
+  .tile-height-bottle-xl {
+    height: 431px;
+
+    @media (min-width: $breakpoint-xl) {
+      height: 592px;
+    }
   }
-  .tile-height-500 {
-    height: 500px;
+  .tile-height-bottle-lg {
+    height: 364px;
+
+    @media (min-width: $breakpoint-xl) {
+      height: 500px;
+    }
   }
-  .tile-height-446 {
-    height: 446px;
+  .tile-height-bottle-md {
+    height: 324px;
+
+    @media (min-width: $breakpoint-xl) {
+      height: 446px;
+    }
   }
-  .tile-height-363 {
-    height: 363px;
+  .tile-height-can-lg {
+    height: 264px;
+
+    @media (min-width: $breakpoint-xl) {
+      height: 363px;
+    }
   }
-  .tile-height-248 {
-    height: 248px;
+  .tile-height-can-md {
+    height: 180x;
+
+    @media (min-width: $breakpoint-xl) {
+      height: 248px;
+    }
   }
-  .tile-height-100 {
-    height: 100px;
-  }
-  .tile-height-0 {
+
+  .tile-height-zero {
     height: 10px;
   }
 </style>

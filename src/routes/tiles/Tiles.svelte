@@ -22,14 +22,21 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+  @import "../../utils/helpers/breakpoints";
+
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 200px));
+    grid-template-columns: repeat(auto-fill, 160px);
     grid-gap: var(--size-tiles-gap);
+    justify-content: center;
     max-width: var(--size-container-max-width);
     padding: 0 var(--size-tiles-gap);
     margin: 0 auto 8rem auto;
+
+    @media (min-width: $breakpoint-xl) {
+      grid-template-columns: repeat(auto-fill, 220px);
+    }
   }
 </style>
 

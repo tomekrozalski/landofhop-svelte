@@ -55,7 +55,7 @@
   li {
     display: flex;
     align-items: flex-end;
-    width: 200px;
+    width: 100%;
   }
 
   :global(a:hover img) {

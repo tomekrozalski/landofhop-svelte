@@ -38,7 +38,7 @@
 
 @media (min-width: 1600px) {
 	:root {
-		--size-container-max-width: 1060px;
+		--size-container-max-width: 1160px;
 		--size-header-height: 12rem;
 		--size-navbar-height: 8rem;
 	}

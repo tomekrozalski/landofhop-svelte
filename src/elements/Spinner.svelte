@@ -24,7 +24,7 @@
     }
   }
 
-  div {
+  .outher {
     display: block;
     width: 100%;
     height: calc(100vh - var(--size-header-height));
@@ -35,7 +35,7 @@
     z-index: var(--index-spinner);
   }
 
-  ul {
+  .inner {
     width: 4rem;
     height: 4rem;
     position: absolute;
@@ -44,7 +44,7 @@
     transform: translateX(-50%) rotateZ(45deg);
   }
 
-  li {
+  span {
     float: left;
     width: 50%;
     height: 50%;
@@ -91,18 +91,18 @@
   div.centered {
     height: 100%;
 
-    ul {
+    .inner {
       top: 50%;
       transform: translate(-50%, -50%) rotateZ(45deg);
     }
   }
 </style>
 
-<div class:centered>
-  <ul>
-    <li />
-    <li />
-    <li />
-    <li />
-  </ul>
+<div class="outher" class:centered>
+  <div class="inner">
+    <span />
+    <span />
+    <span />
+    <span />
+  </div>
 </div>

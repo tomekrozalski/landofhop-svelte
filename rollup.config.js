@@ -36,7 +36,8 @@ export default {
 			aliases,
 			replace({
 				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
+				'process.env.NODE_ENV': JSON.stringify(mode),
+				'process.env.SERVER_DATA': JSON.stringify(process.env.SERVER_DATA),
 			}),
 			svelte({
 				dev,
