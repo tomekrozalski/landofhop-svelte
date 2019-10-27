@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import isBoolean from "lodash/isBoolean";
   import { language, webpSupport } from "utils/store";
   import { servers } from "utils/constants";
@@ -6,6 +7,8 @@
 
   export let item;
   export let loaded = false;
+
+  onMount(webpSupport.checkSupport);
 
   const {
     badge,
@@ -19,14 +22,15 @@
     values: name,
     language
   });
+
   const { value: formattedBrand } = getNameByLanguage({
     values: brandName,
     language
   });
 
-  $: coverPath = `${servers.images}${brandBadge}/${badge}/${shortId}/cover/${
-    $webpSupport ? "webp" : "jpg"
-  }`;
+  $: format = $webpSupport ? "webp" : "jpg";
+  $: coverPath = `${servers.images}${brandBadge}/${badge}/${shortId}/cover/${format}`;
+  $: srcSet = `${coverPath}/1x.${format}, ${coverPath}/2x.${format} 2x, ${coverPath}/4x.${format} 4x,`;
 </script>
 
 <style lang="scss">
@@ -45,16 +49,12 @@
   }
 </style>
 
-{#if isBoolean($webpSupport)}
+{#if !process.browser || isBoolean($webpSupport)}
   <img
     alt={`${formattedName}, ${formattedBrand}`}
     class:loaded
     on:error
     on:load
-    srcSet={`
-          ${coverPath}/1x.${$webpSupport ? 'webp' : 'jpg'},
-          ${coverPath}/2x.${$webpSupport ? 'webp' : 'jpg'} 2x,
-          ${coverPath}/4x.${$webpSupport ? 'webp' : 'jpg'} 4x,
-        `}
-    src={`${coverPath}/1x.${$webpSupport ? 'webp' : 'jpg'}`} />
+    {srcSet}
+    src={`${coverPath}/1x.${format}`} />
 {/if}

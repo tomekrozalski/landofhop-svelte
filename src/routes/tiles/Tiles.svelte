@@ -6,9 +6,8 @@
   let bodyHeight;
   let y;
 
-  $: console.log("y", y);
-  $: console.log("bodyHeight", bodyHeight);
-  $: console.log("beveragesBasics", $beveragesBasics);
+  // $: console.log("y", y);
+  // $: console.log("bodyHeight", bodyHeight);
 
   afterUpdate(() => {
     const { offsetHeight } = document.body;

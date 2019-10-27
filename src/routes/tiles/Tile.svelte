@@ -3,7 +3,6 @@
   import { fade } from "svelte/transition";
 
   import { language, webpSupport } from "utils/store";
-  import { servers } from "utils/constants";
   import { getNameByLanguage, setContainerHeight } from "utils/helpers";
   import BrokenContainer from "./BrokenContainer.svelte";
   import Container from "./Container.svelte";
@@ -11,12 +10,16 @@
   import TileLink from "./TileLink.svelte";
 
   export let item;
-  let failure = false;
-  let loaded = false;
   let { container } = item;
-
-  let canvasElement;
+  let failure = false;
+  let loaded;
   let visible;
+  let canvasElement;
+
+  if (!process.browser) {
+    loaded = true;
+    visible = true;
+  }
 
   function setFailure() {
     failure = true;
