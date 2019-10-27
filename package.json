@@ -3,9 +3,9 @@
   "description": "Land of Hop. Application with beer catalogue",
   "version": "1.1.0",
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "dev": "SERVER_DATA=http://localhost:3100/api/v2/ sapper dev",
+    "build": "SERVER_DATA=https://land-of-hop-server.herokuapp.com/api/v2/ sapper build --legacy",
+    "export": "SERVER_DATA=https://land-of-hop-server.herokuapp.com/api/v2/ sapper export --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
