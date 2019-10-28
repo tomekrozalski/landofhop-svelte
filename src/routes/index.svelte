@@ -1,12 +1,27 @@
 <script context="module">
   import { servers } from "utils/constants";
-  import { beveragesBasics } from "utils/store";
+  import { beveragesBasics, beveragesCount } from "utils/store";
 
-  export function preload() {
-    return this.fetch(`${servers.data}beverage/0/10`)
-      .then(res => res.json())
-      .then(values => beveragesBasics.set(values))
-      .catch(err => this.error(500, "Could not fetch beverage basics"));
+  export async function preload() {
+    try {
+      const basicsResponse = await this.fetch(`${servers.data}beverage/0/10`);
+      const basicsValues = await basicsResponse.json();
+
+      beveragesBasics.set(basicsValues);
+    } catch (err) {
+      this.error(500, "Could not fetch beverage basics");
+    }
+
+    try {
+      const countResponse = await this.fetch(`${servers.data}beverage/count`);
+      const countValue = await countResponse.json();
+
+      beveragesCount.set(countValue);
+    } catch (err) {
+      this.error(500, "Could not fetch beverage count");
+    }
+
+    return null;
   }
 </script>
 

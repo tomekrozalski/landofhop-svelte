@@ -2,6 +2,7 @@
   import { afterUpdate, onMount } from "svelte";
   import { beveragesBasics } from "utils/store";
   import Tile from "./Tile.svelte";
+  import Pagination from "./Pagination.svelte";
 
   let bodyHeight;
   let y;
@@ -25,6 +26,10 @@
 <style lang="scss">
   @import "../../utils/helpers/breakpoints";
 
+  h2 {
+    display: none;
+  }
+
   ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, 160px);
@@ -47,8 +52,12 @@
 <svelte:window bind:scrollY={y} />
 <svelte:body on:mouseenter={mouseenter} />
 
+<h2>Lista napojów</h2>
+
 <ul>
   {#each $beveragesBasics as item (item.id)}
     <Tile {item} />
   {/each}
 </ul>
+
+<Pagination />

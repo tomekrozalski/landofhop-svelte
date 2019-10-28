@@ -1,4 +1,5 @@
-import beveragesBasics from './beveragesBasics';
+import beveragesBasics from './beverage/basics';
+import beveragesCount from './beverage/count';
 import isLoggedIn from './isLoggedIn';
 import isLoginbar from './isLoginbar';
 import isNavbar from './isNavbar';
@@ -7,6 +8,7 @@ import webpSupport from './webpSupport';
 
 export {
 	beveragesBasics,
+	beveragesCount,
 	isLoggedIn,
 	isLoginbar,
 	isNavbar,
