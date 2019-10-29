@@ -2,7 +2,6 @@
   import { afterUpdate, onMount } from "svelte";
   import { beveragesBasics } from "utils/store";
   import Tile from "./Tile.svelte";
-  import Pagination from "./Pagination.svelte";
 
   let bodyHeight;
   let y;
@@ -59,5 +58,3 @@
     <Tile {item} />
   {/each}
 </ul>
-
-<Pagination />

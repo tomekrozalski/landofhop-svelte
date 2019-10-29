@@ -17,7 +17,8 @@
 </script>
 
 <script>
-  import { Tiles } from "components";
+  import { Tiles, TilesPagination } from "components";
 </script>
 
 <Tiles />
+<TilesPagination />

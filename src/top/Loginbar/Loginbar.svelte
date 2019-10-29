@@ -2,8 +2,7 @@
   import { fly } from "svelte/transition";
   import { string, object } from "yup";
   import { FieldStatusIndicator } from "elements";
-  import { serverCall } from "utils/helpers";
-  import { endpoints } from "utils/constants";
+  import { servers } from "utils/constants";
 
   let form = {
     email: {
@@ -41,8 +40,11 @@
   }
 
   const sendTheForm = async () => {
-    const rawResponse = await serverCall({
-      type: endpoints.login,
+    const rawResponse = await fetch(`${servers.data}auth`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         email: form.email.value,
         password: form.password.value

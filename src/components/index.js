@@ -1,3 +1,4 @@
 import Tiles from './Tiles';
+import TilesPagination from './TilesPagination';
 
-export { Tiles };
+export { Tiles, TilesPagination };

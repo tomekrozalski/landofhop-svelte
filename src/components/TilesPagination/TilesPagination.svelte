@@ -2,6 +2,9 @@
   import { onMount } from "svelte";
   import { beveragesCount } from "utils/store";
 
+  export let page = 1;
+
+  console.log("page", page);
   // let pages = Math.ceil($beveragesCount / 10);
 </script>
 
@@ -61,19 +64,19 @@
     <span>←</span>
   </li>
   <li>
-    <a class="active" href="/">1</a>
+    <a class:active={page === 1} href="/">1</a>
   </li>
   <li>
-    <a href="/list/2">2</a>
+    <a class:active={page === 2} href="/list/2">2</a>
   </li>
   <li>
-    <a href="/list/3">3</a>
+    <a class:active={page === 3} href="/list/3">3</a>
   </li>
   <li>
-    <a href="/list/4">4</a>
+    <a class:active={page === 4} href="/list/4">4</a>
   </li>
   <li>
-    <a href="/list/5">5</a>
+    <a class:active={page === 5} href="/list/5">5</a>
   </li>
   <li>
     <a href="/list/5">→</a>
