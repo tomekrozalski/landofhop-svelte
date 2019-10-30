@@ -2,10 +2,24 @@
   import { onMount } from "svelte";
   import { beveragesCount } from "utils/store";
 
+  export let lastPage = 1;
   export let page = 1;
 
-  console.log("page", page);
-  // let pages = Math.ceil($beveragesCount / 10);
+  const pages = () => {
+    if (page <= 3) {
+      return new Array(4).fill("").reduce(acc => [...acc, acc.pop() + 1], [1]);
+    }
+
+    if (page + 2 >= lastPage) {
+      return new Array(4)
+        .fill("")
+        .reduce(acc => [...acc, acc.pop() + 1], [lastPage - 4]);
+    }
+
+    return new Array(4)
+      .fill("")
+      .reduce(acc => [...acc, acc.pop() + 1], [page - 2]);
+  };
 </script>
 
 <style lang="scss">
@@ -61,24 +75,23 @@
 
 <ul>
   <li>
-    <span>←</span>
+    {#if page === 1}
+      <span>←</span>
+    {:else}
+      <a href="/list/{page - 1}">←</a>
+    {/if}
   </li>
+  {#each pages() as pageItem (pageItem)}
+    <li>
+      <a class:active={pageItem === page} href="/list/{pageItem}">{pageItem}</a>
+    </li>
+  {/each}
   <li>
-    <a class:active={page === 1} href="/">1</a>
-  </li>
-  <li>
-    <a class:active={page === 2} href="/list/2">2</a>
-  </li>
-  <li>
-    <a class:active={page === 3} href="/list/3">3</a>
-  </li>
-  <li>
-    <a class:active={page === 4} href="/list/4">4</a>
-  </li>
-  <li>
-    <a class:active={page === 5} href="/list/5">5</a>
-  </li>
-  <li>
-    <a href="/list/5">→</a>
+    {#if page === lastPage}
+      <span>→</span>
+    {:else}
+      <a href="/list/{page + 1}">→</a>
+    {/if}
+
   </li>
 </ul>

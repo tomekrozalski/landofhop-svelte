@@ -3,7 +3,7 @@
 
   export async function preload() {
     try {
-      const basicsResponse = await this.fetch(`${servers.data}beverage/0/5`);
+      const basicsResponse = await this.fetch(`${servers.data}beverage/0/10`);
       const basicsValues = await basicsResponse.json();
 
       return { basicsValues };
@@ -27,5 +27,5 @@
   });
 </script>
 
-<Tiles />
+<Tiles {basicsValues} />
 <TilesPagination />

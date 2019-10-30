@@ -3,23 +3,7 @@
   import { beveragesBasics } from "utils/store";
   import Tile from "./Tile.svelte";
 
-  let bodyHeight;
-  let y;
-
-  // $: console.log("y", y);
-  // $: console.log("bodyHeight", bodyHeight);
-
-  afterUpdate(() => {
-    const { offsetHeight } = document.body;
-
-    if (offsetHeight && !bodyHeight) {
-      bodyHeight = offsetHeight;
-    }
-  });
-
-  function mouseenter() {
-    console.log("mouseenter");
-  }
+  export let basicsValues = [];
 </script>
 
 <style lang="scss">
@@ -48,13 +32,10 @@
   <title>Land of Hop</title>
 </svelte:head>
 
-<svelte:window bind:scrollY={y} />
-<svelte:body on:mouseenter={mouseenter} />
-
 <h2>Lista napojów</h2>
 
 <ul>
-  {#each $beveragesBasics as item (item.id)}
+  {#each basicsValues as item (item.id)}
     <Tile {item} />
   {/each}
 </ul>

@@ -9,7 +9,7 @@
 
     try {
       const basicsResponse = await this.fetch(
-        `${servers.data}beverage/${page ? (page - 1) * 5 : 0}/5`
+        `${servers.data}beverage/${page ? (page - 1) * 10 : 0}/10`
       );
       basicsValues = await basicsResponse.json();
     } catch (err) {
@@ -42,5 +42,5 @@
   });
 </script>
 
-<Tiles />
-<TilesPagination {page} />
+<Tiles {basicsValues} />
+<TilesPagination {page} lastPage={Math.ceil(countValue / 10)} />
