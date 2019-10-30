@@ -1,13 +1,12 @@
 <script context="module">
   import { servers } from "utils/constants";
-  import { beveragesBasics } from "utils/store";
 
   export async function preload() {
     try {
-      const basicsResponse = await this.fetch(`${servers.data}beverage/0/10`);
+      const basicsResponse = await this.fetch(`${servers.data}beverage/0/5`);
       const basicsValues = await basicsResponse.json();
 
-      beveragesBasics.set(basicsValues);
+      return { basicsValues };
     } catch (err) {
       this.error(500, "Could not fetch beverage basics");
     }
@@ -17,7 +16,15 @@
 </script>
 
 <script>
+  import { onMount } from "svelte";
+  import { beveragesBasics } from "utils/store";
   import { Tiles, TilesPagination } from "components";
+
+  export let basicsValues;
+
+  onMount(() => {
+    beveragesBasics.set(basicsValues);
+  });
 </script>
 
 <Tiles />
